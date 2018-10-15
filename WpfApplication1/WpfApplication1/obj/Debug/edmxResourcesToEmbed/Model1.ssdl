@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище kurs_remModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dispetchers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_d" Type="nvarchar" MaxLength="50" />
+    <Property Name="weather_skore" Type="int" />
+  </EntityType>
+  <EntityType Name="Nikks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nick" Type="nvarchar" MaxLength="50" />
+    <Property Name="Passvord" Type="nvarchar" MaxLength="50" />
+    <Property Name="Middle" Type="bit" />
+    <Property Name="hard" Type="bit" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "kurs_rem.dbo.Nikks_Disps" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Nikks_Disps">
+    <Key>
+      <PropertyRef Name="ID_Nikks" />
+      <PropertyRef Name="ID_Dispetchers" />
+    </Key>
+    <Property Name="ID_Nikks" Type="int" Nullable="false" />
+    <Property Name="ID_Dispetchers" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "kurs_rem.dbo.Nikks_Scores" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Nikks_Scores">
+    <Key>
+      <PropertyRef Name="ID_Nikks" />
+      <PropertyRef Name="ID_Skores" />
+    </Key>
+    <Property Name="ID_Nikks" Type="int" Nullable="false" />
+    <Property Name="ID_Skores" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scores">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Skore" Type="int" />
+    <Property Name="hard" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Nikks_Dis__ID_Di__49C3F6B7">
+    <End Role="Dispetchers" Type="Self.Dispetchers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nikks_Disps" Type="Self.Nikks_Disps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dispetchers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Nikks_Disps">
+        <PropertyRef Name="ID_Dispetchers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nikks_Dis__ID_Ni__48CFD27E">
+    <End Role="Nikks" Type="Self.Nikks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nikks_Disps" Type="Self.Nikks_Disps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nikks">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Nikks_Disps">
+        <PropertyRef Name="ID_Nikks" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nikks_Sco__ID_Ni__440B1D61">
+    <End Role="Nikks" Type="Self.Nikks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nikks_Scores" Type="Self.Nikks_Scores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nikks">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Nikks_Scores">
+        <PropertyRef Name="ID_Nikks" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nikks_Sco__ID_Sk__44FF419A">
+    <End Role="Scores" Type="Self.Scores" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Nikks_Scores" Type="Self.Nikks_Scores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scores">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Nikks_Scores">
+        <PropertyRef Name="ID_Skores" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище kurs_remModelContainer">
+    <EntitySet Name="Dispetchers" EntityType="Self.Dispetchers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nikks" EntityType="Self.Nikks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scores" EntityType="Self.Scores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nikks_Disps" EntityType="Self.Nikks_Disps" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Nikks_Disps].[ID_Nikks] AS [ID_Nikks], 
+    [Nikks_Disps].[ID_Dispetchers] AS [ID_Dispetchers]
+    FROM [dbo].[Nikks_Disps] AS [Nikks_Disps]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Nikks_Scores" EntityType="Self.Nikks_Scores" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Nikks_Scores].[ID_Nikks] AS [ID_Nikks], 
+    [Nikks_Scores].[ID_Skores] AS [ID_Skores]
+    FROM [dbo].[Nikks_Scores] AS [Nikks_Scores]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Nikks_Dis__ID_Di__49C3F6B7" Association="Self.FK__Nikks_Dis__ID_Di__49C3F6B7">
+      <End Role="Dispetchers" EntitySet="Dispetchers" />
+      <End Role="Nikks_Disps" EntitySet="Nikks_Disps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nikks_Dis__ID_Ni__48CFD27E" Association="Self.FK__Nikks_Dis__ID_Ni__48CFD27E">
+      <End Role="Nikks" EntitySet="Nikks" />
+      <End Role="Nikks_Disps" EntitySet="Nikks_Disps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nikks_Sco__ID_Ni__440B1D61" Association="Self.FK__Nikks_Sco__ID_Ni__440B1D61">
+      <End Role="Nikks" EntitySet="Nikks" />
+      <End Role="Nikks_Scores" EntitySet="Nikks_Scores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nikks_Sco__ID_Sk__44FF419A" Association="Self.FK__Nikks_Sco__ID_Sk__44FF419A">
+      <End Role="Scores" EntitySet="Scores" />
+      <End Role="Nikks_Scores" EntitySet="Nikks_Scores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

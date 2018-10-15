@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBox x:Name="log" HorizontalAlignment="Left" Height="23" Margin="62,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="reg" HorizontalAlignment="Left" Height="23" Margin="326,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="par1" HorizontalAlignment="Left" Margin="62,156,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="par2" HorizontalAlignment="Left" Margin="326,156,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button" Content="войти" HorizontalAlignment="Left" Margin="62,211,0,0" VerticalAlignment="Top" Width="120" Click="button_Click"/>
+        <Button x:Name="button1" Content="зарегестрироватся" HorizontalAlignment="Left" Margin="326,211,0,0" VerticalAlignment="Top" Width="120" Click="button1_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="228,111,0,0" TextWrapping="Wrap" Text="логин" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="228,156,0,0" TextWrapping="Wrap" Text="пароль" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="170,10,0,0" TextWrapping="Wrap" Text="окно входа" VerticalAlignment="Top" Height="52" Width="170" FontSize="30"/>
+
+    </Grid>
+</Window>

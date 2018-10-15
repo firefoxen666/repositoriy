@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kurs_remModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dispetchers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_d" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="weather_skore" Type="Int32" />
+    <NavigationProperty Name="Nikks" Relationship="Self.Nikks_Disps" FromRole="Dispetchers" ToRole="Nikks" />
+  </EntityType>
+  <EntityType Name="Nikks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nick" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Passvord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Middle" Type="Boolean" />
+    <Property Name="hard" Type="Boolean" />
+    <NavigationProperty Name="Dispetchers" Relationship="Self.Nikks_Disps" FromRole="Nikks" ToRole="Dispetchers" />
+    <NavigationProperty Name="Scores" Relationship="Self.Nikks_Scores" FromRole="Nikks" ToRole="Scores" />
+  </EntityType>
+  <EntityType Name="Scores">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Skore" Type="Int32" />
+    <Property Name="hard" Type="Int32" />
+    <NavigationProperty Name="Nikks" Relationship="Self.Nikks_Scores" FromRole="Scores" ToRole="Nikks" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="Nikks_Disps">
+    <End Role="Dispetchers" Type="Self.Dispetchers" Multiplicity="*" />
+    <End Role="Nikks" Type="Self.Nikks" Multiplicity="*" />
+  </Association>
+  <Association Name="Nikks_Scores">
+    <End Role="Nikks" Type="Self.Nikks" Multiplicity="*" />
+    <End Role="Scores" Type="Self.Scores" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="kurs_remEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dispetchers" EntityType="Self.Dispetchers" />
+    <EntitySet Name="Nikks" EntityType="Self.Nikks" />
+    <EntitySet Name="Scores" EntityType="Self.Scores" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="Nikks_Disps" Association="Self.Nikks_Disps">
+      <End Role="Dispetchers" EntitySet="Dispetchers" />
+      <End Role="Nikks" EntitySet="Nikks" />
+    </AssociationSet>
+    <AssociationSet Name="Nikks_Scores" Association="Self.Nikks_Scores">
+      <End Role="Nikks" EntitySet="Nikks" />
+      <End Role="Scores" EntitySet="Scores" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

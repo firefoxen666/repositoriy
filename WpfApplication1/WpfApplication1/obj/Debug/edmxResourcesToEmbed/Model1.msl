@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище kurs_remModelContainer" CdmEntityContainer="kurs_remEntities">
+    <EntitySetMapping Name="Dispetchers">
+      <EntityTypeMapping TypeName="kurs_remModel.Dispetchers">
+        <MappingFragment StoreEntitySet="Dispetchers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name_d" ColumnName="Name_d" />
+          <ScalarProperty Name="weather_skore" ColumnName="weather_skore" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nikks">
+      <EntityTypeMapping TypeName="kurs_remModel.Nikks">
+        <MappingFragment StoreEntitySet="Nikks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nick" ColumnName="Nick" />
+          <ScalarProperty Name="Passvord" ColumnName="Passvord" />
+          <ScalarProperty Name="Middle" ColumnName="Middle" />
+          <ScalarProperty Name="hard" ColumnName="hard" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scores">
+      <EntityTypeMapping TypeName="kurs_remModel.Scores">
+        <MappingFragment StoreEntitySet="Scores">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Skore" ColumnName="Skore" />
+          <ScalarProperty Name="hard" ColumnName="hard" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="kurs_remModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Nikks_Disps" TypeName="kurs_remModel.Nikks_Disps" StoreEntitySet="Nikks_Disps">
+      <EndProperty Name="Dispetchers">
+        <ScalarProperty Name="ID" ColumnName="ID_Dispetchers" />
+      </EndProperty>
+      <EndProperty Name="Nikks">
+        <ScalarProperty Name="ID" ColumnName="ID_Nikks" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Nikks_Scores" TypeName="kurs_remModel.Nikks_Scores" StoreEntitySet="Nikks_Scores">
+      <EndProperty Name="Nikks">
+        <ScalarProperty Name="ID" ColumnName="ID_Nikks" />
+      </EndProperty>
+      <EndProperty Name="Scores">
+        <ScalarProperty Name="ID" ColumnName="ID_Skores" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

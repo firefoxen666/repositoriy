@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApplication1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="главное меню" Height="204.167" Width="407.292">
+    <Grid>
+        <Button x:Name="game" Content="игра" HorizontalAlignment="Left" Margin="280,27,0,0" VerticalAlignment="Top" Width="100" Click="button_Click" IsEnabled="False"/>
+        <Button x:Name="table" Content="таблица лидеров" HorizontalAlignment="Left" Margin="280,72,0,0" VerticalAlignment="Top" Width="100" Click="table_Click" IsEnabled="False"/>
+        <RadioButton x:Name="easy" Content="легко" HorizontalAlignment="Left" Margin="24,27,0,0" VerticalAlignment="Top" Checked="easy_Checked"/>
+        <RadioButton x:Name="medium" Content="средне" HorizontalAlignment="Left" Margin="24,72,0,0" VerticalAlignment="Top" Checked="medium_Checked" IsEnabled="False"/>
+        <RadioButton x:Name="hard" Content="сложно" HorizontalAlignment="Left" Margin="24,117,0,0" VerticalAlignment="Top" Checked="hard_Checked" IsEnabled="False"/>
+        <Button x:Name="exit" Content="выход" HorizontalAlignment="Left" Margin="280,117,0,0" VerticalAlignment="Top" Width="100" Click="exit_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="147,84,0,0" TextWrapping="Wrap" Text="ваш рекорд" VerticalAlignment="Top"/>
+        <TextBlock x:Name="rek" HorizontalAlignment="Left" Margin="175,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="167,26,0,0" TextWrapping="Wrap" Text="вы" VerticalAlignment="Top"/>
+        <TextBlock x:Name="NK" HorizontalAlignment="Left" Margin="165,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
