@@ -77,3 +77,6 @@ C:\Users\admin\Desktop\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1
 C:\Users\10182\Desktop\WpfApplication1\WpfApplication1\obj\Debug\Game.baml
 C:\Users\10182\Desktop\WpfApplication1\WpfApplication1\obj\Debug\Table.baml
 C:\Users\10182\Desktop\WpfApplication1\WpfApplication1\obj\Debug\menu.baml
+C:\Users\10182\Documents\Git\repositoriy\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+C:\Users\10182\Documents\Git\repositoriy\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\10182\Documents\Git\repositoriy\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.pdb
